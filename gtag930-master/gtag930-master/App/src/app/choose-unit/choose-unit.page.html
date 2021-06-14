@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="closeModal()" color="dark">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Choose Bluetooth Unit</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item (click)="deviceClick(device)" *ngFor="let device of bluetoothDevices" button>
+        <ion-label>
+            {{device.name}}
+        </ion-label>
+    </ion-item>
+</ion-content>

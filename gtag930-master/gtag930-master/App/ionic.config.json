@@ -1,0 +1,7 @@
+{
+  "name": "GTag930",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

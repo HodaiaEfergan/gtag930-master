@@ -1,0 +1,48 @@
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <div>
+                    <h3 style="text-align: center;">GTag-930</h3>
+                    <h1 style="text-align: center;">Login</h1>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <form #form="ngForm" (ngSubmit)="login(model)">
+        <ion-grid>
+            <ion-row color="primary" justify-content-center style="justify-content: center;">
+                <ion-col align-self-center size-lg="5" size-md="6" size-xs="12">
+                    <div text-center>
+                    </div>
+                    <div padding>
+                        <ion-item>
+                            <ion-input [(ngModel)]="model.email" name="email" placeholder="your@email.com" required
+                                       type="email">
+                            </ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-input [(ngModel)]="model.password" name="password" placeholder="Password"
+                                       required type="password">
+                            </ion-input>
+                        </ion-item>
+                    </div>
+                    <div class="my-checkbox" float-left style="margin-top:20px; margin-bottom:20px;">
+                        <ion-checkbox [(ngModel)]="model.rememberMe" name="rememberMe">
+                        </ion-checkbox>
+                        <ion-label style="vertical-align: top; margin-left: 10px;" text-uppercase>Remember me
+                        </ion-label>
+
+                    </div>
+                    <div>
+                        <p *ngIf="error" class="text-danger">Wrong username and or password.</p>
+                    </div>
+                    <div padding>
+                        <ion-button [disabled]="form.invalid" expand="block" size="large" type="submit">Login
+                        </ion-button>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

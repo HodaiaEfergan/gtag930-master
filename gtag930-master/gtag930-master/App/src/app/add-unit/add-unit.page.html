@@ -1,0 +1,12 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Add Unit</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-input [(ngModel)]="unitId" placeholder="Enter Unit ID"></ion-input>
+    <ion-input [(ngModel)]="unitName" placeholder="Enter Unit Name"></ion-input>
+    <ion-button (click)="addUnit()">Add Unit</ion-button>
+    <ion-button (click)="close()">Close</ion-button>
+</ion-content>

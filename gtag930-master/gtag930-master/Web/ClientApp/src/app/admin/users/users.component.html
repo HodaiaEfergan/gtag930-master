@@ -1,0 +1,65 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Username</th>
+    <th>Role</th>
+    <th>Is Locked?</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of (users | async)" [ngClass]="{ 'locked-background': user.isLocked }">
+    <td>
+      {{user.username}}
+    </td>
+    <td>
+      {{getUserRole(user.roles)}}
+    </td>
+    <td>
+      {{user.isLocked}}
+    </td>
+    <td>
+      <button class="btn btn-warning" (click)="editUser(editUserModal, user)">Edit</button>
+    </td>
+    <td>
+      <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<ng-template #infoModal let-modal>
+  <div class="modal-body">
+    {{infoModalBody}}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">OK</button>
+  </div>
+</ng-template>
+
+<ng-template #editUserModal let-modal>
+  <form [formGroup]="editUserForm" (ngSubmit)="editUserSubmit()">
+    <div class="modal-body">
+      <input type="hidden" formControlName="id"/>
+      <div class="form-group row">
+        <label for="role" class="col-sm-4 col-form-label">Role</label>
+        <div class="col-sm-8">
+          <select id="role" formControlName="role">
+            <option value="Admin">Admin</option>
+            <option value="Regular">Regular</option>
+          </select>
+        </div>
+        <label for="role" class="col-sm-4 col-form-label">Is Locked?</label>
+        <div class="col-sm-8">
+          <input type="checkbox" id="isLocked" formControlName="isLocked"/>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+      <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+  </form>
+</ng-template>
