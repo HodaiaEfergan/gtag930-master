@@ -5,8 +5,8 @@
 export const environment = {
     production: false,
     //apiUrl: 'https://gtag930.com/',
-    //apiUrl: "https://localhost:5001/",
-    apiUrl: 'https://gtag-master.herokuapp.com/'
+    apiUrl: "https://localhost:8080/",
+    //apiUrl: 'https://gtag-master.herokuapp.com/'
 };
 
 /*
